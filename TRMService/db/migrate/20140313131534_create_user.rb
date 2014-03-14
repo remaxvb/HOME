@@ -8,12 +8,12 @@ class CreateUser < ActiveRecord::Migration
       t.string :lastname, :limit => 50
       t.string :address, :limit => 50
       t.string :phone, :limit => 15
-      t.date :dayofBirth
+      t.date :day_of_birth
       t.attachment :avatar
       t.boolean :gender
       ## Recoverable
-      t.string :reset_password_token
-      t.datetime :reset_password_sent_at
+      #t.string :reset_password_token
+      #t.datetime :reset_password_sent_at
 
       ## Rememberable
       #t.datetime :remember_created_at
@@ -39,7 +39,6 @@ class CreateUser < ActiveRecord::Migration
     end
 
     add_index :users, :email, :unique => true
-    add_index :users, :reset_password_token, :unique => true
     # add_index :users, :confirmation_token,   :unique => true
     # add_index :users, :unlock_token,         :unique => true
   end

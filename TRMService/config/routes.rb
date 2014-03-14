@@ -1,14 +1,35 @@
 TRMService::Application.routes.draw do
-  namespace :api, default: {format: "json"} do
-    #devise_for :users, :skip => [:registrations,:password]
+  namespace :api do
+    devise_for :users, :skip => [:registrations, :password]
     devise_scope :user do
-      post "users/sign_in", :to => 'users#signin'
-      post "users/sign_up", :to => 'users#signup'
-      delete "user/sign_out", :to => 'users#signout'
-      post "users/user_info", :to => 'users#userinfo'
+      post "users/sign_up", :to => 'registrations#create'
+      post "users/sign_in", :to => 'sessions#create'
+      delete "users/sign_out", :to => 'sessions#destroy'
+      post "users/user_info", :to => 'users#info'
       post "users/changepassword", :to => 'users#changepassword'
-
     end
+    #TOUR routes
+    post "tours/create", :to => 'tours#create'
+    post "tours/edit", :to => 'tours#edit'
+    post "tours/info", :to => 'tours#info'
+    post "tours/update", :to => 'tours#update'
+    delete "tours/delete", :to => 'tours#detroy'
+
+    #MEMBER routes
+    post "members/create", :to => 'members#create'
+    post "members/edit", :to => 'members#edit'
+    post "members/info", :to => 'members#info'
+    post "members/update", :to => 'members#update'
+    delete "members/delete", :to => 'members#detroy'
+
+    #Invitation routes
+    post "invitations/create", :to => 'invitations#create'
+    post "invitations/edit", :to => 'invitations#edit'
+    post "invitations/info", :to => 'invitations#info'
+    post "invitations/update", :to => 'invitations#update'
+    delete "invitations/delete", :to => 'invitations#detroy'
+
+
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
