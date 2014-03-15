@@ -8,7 +8,6 @@ class Api::RegistrationsController < ApplicationController
     if user.save
       render :json => {:success => true, :message => user.as_json}
     else
-      warden.custom_failure!
       render :json => {:success => false, :message => user.errors}
     end
   end

@@ -5,20 +5,12 @@ class Api::SessionsController < Devise::SessionsController
   skip_before_action :verify_authenticity_token
 
   def create
-    currentuser = User.find_for_database_authentication(:email => params[:user][:email])
-    if currentuser.nil?
+    current_user = User.find_for_database_authentication(:email => params[:user][:email])
+    if current_user.nil?
       return failure unless resource
     end
-    if currentuser.valid_password?(params[:user][:password])
-      if (currentuser.login_token != nil)&&(session[:token] == currentuser.login_token)
-        sign_fail
-      else
-        token = Devise.friendly_token
-        session[:token] = token
-        currentuser.login_token = token
-        currentuser.save
-        render :json => {:success => true}
-      end
+    if current_user.valid_password?(params[:user][:password])
+      sign_in(current_user)
     end
   end
 

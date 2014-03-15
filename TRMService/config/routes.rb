@@ -12,6 +12,7 @@ TRMService::Application.routes.draw do
     post "tours/create", :to => 'tours#create'
     post "tours/edit", :to => 'tours#edit'
     post "tours/info", :to => 'tours#info'
+    post "tours", :to => 'tours#gettours'
     post "tours/update", :to => 'tours#update'
     delete "tours/delete", :to => 'tours#detroy'
 

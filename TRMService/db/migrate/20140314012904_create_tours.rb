@@ -7,8 +7,10 @@ class CreateTours < ActiveRecord::Migration
       t.float :child_price
       t.date :depature_date
       t.date :return_date
-      t.integer :id_manager, :null => false
+      t.integer :manager_id, :null => false
       t.integer :max_members
+      t.text :description
+      t.string :currency, :limit =>5
       t.timestamps
     end
 
