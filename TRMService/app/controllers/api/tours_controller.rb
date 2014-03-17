@@ -66,21 +66,23 @@ class Api::ToursController < ApplicationController
 
   #DELETE /api/tours/delete
   def destroy
-
+    #TODO Method destroy: Delete the tour
   end
 
   #POST /api/tours/edit
   def edit
-
+   #TODO Mothod edit: This is only alternati for update moethod
   end
 
   private
+  # Get tour params from client
   def tour_params
     params.require(:tour).permit(:id, :title, :destination, :description, :adult_price,
                                  :child_price, :depature_date, :return_date, :manager_id,
                                  :max_members, :currency) if params[:tour]
   end
 
+  # Get user params from client
   def user_params
     params.require(:user).permit(:id) if params[:user]
   end

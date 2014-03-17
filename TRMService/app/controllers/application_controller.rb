@@ -5,17 +5,20 @@ class ApplicationController < ActionController::Base
 
   #Will log out the current user if another instance of the current user logs in.
   #This will ensure that only one session is active for a user at any instance of time.
-  before_action :invalidate_simultaneous_user_session, :unless => Proc.new {|c| c.controller_name == 'sessions' and c.action_name = 'create' }
+  #before_action :current_user_signed_in, :unless => Proc.new { |c| c.controller_name == 'sessions' and c.action_name = 'create' }
 
-  def invalidate_simultaneous_user_session
-    sign_out_and_redirect(current_user) if current_user && session[:sign_in_token] != current_user.current_sign_in_token
+  def current_user_signed_in
+    current_user=User.find(user_authenication[:id])
+    if user_authenication[:token].nil?
+      render :json => {success: false, message: 'You did not sign in before'}
+    elsif current_user && user_authenication[:token] != current_user.current_sign_in_token
+      render :json => {success: false, message: 'User already signed on in another device'}
+    end
   end
 
-  def sign_in(resource_or_scope, *args)
-    super
-    token = Devise.friendly_token
-    current_user.update_attribute :current_sign_in_token, token
-    session[:sign_in_token] = token
+  private
+  def user_authenication
+    params.require(:user).permit(:id, :token) if params[:user]
   end
 
 end

@@ -8,7 +8,7 @@ gem 'mysql','~> 2.9.1'
 gem 'activerecord-session_store'
 # Use devise for manage account
 gem 'devise'
-
+gem 'faye'
 # Use paperclip to upload image
 gem 'paperclip'
 

@@ -14,9 +14,10 @@
 ActiveRecord::Schema.define(version: 20140315110520) do
 
   create_table "invitations", force: true do |t|
-    t.integer  "user_id",    null: false
-    t.integer  "member_id",  null: false
-    t.integer  "type",       null: false
+    t.integer  "user_id",     null: false
+    t.integer  "member_id",   null: false
+    t.integer  "type",        null: false
+    t.text     "description"
     t.integer  "status"
     t.datetime "created_at"
     t.datetime "updated_at"

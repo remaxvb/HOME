@@ -5,7 +5,6 @@ TRMService::Application.routes.draw do
       post "users/sign_up", :to => 'registrations#create'
       post "users/sign_in", :to => 'sessions#create'
       delete "users/sign_out", :to => 'sessions#destroy'
-      post "users/user_info", :to => 'users#info'
       post "users/changepassword", :to => 'users#changepassword'
     end
     #TOUR routes
@@ -15,6 +14,7 @@ TRMService::Application.routes.draw do
     post "tours", :to => 'tours#gettours'
     post "tours/update", :to => 'tours#update'
     delete "tours/delete", :to => 'tours#detroy'
+    get "users/user_info", :to => 'users#info'
 
     #MEMBER routes
     post "members/create", :to => 'members#create'
