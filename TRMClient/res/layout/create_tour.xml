@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/txtTourName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tour Name" />
+
+        <EditText
+            android:id="@+id/txtTourLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tour Location" />
+
+        <EditText
+            android:id="@+id/txtTourAdultPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Adult Price" />
+
+        <EditText
+            android:id="@+id/txtTourChildPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Child Price" />
+
+        <EditText
+            android:id="@+id/txtDepatureDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Depature Date" />
+
+        <EditText
+            android:id="@+id/txtReturnDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Return Date" />
+
+        <EditText
+            android:id="@+id/txtDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Description" />
+        <EditText
+            android:id="@+id/txtMaxMember"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Max members" />
+
+        <Button
+            android:id="@+id/btnCreateTour"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/button_sign_in"
+            android:text="Create Tour" />
+    </LinearLayout>
+
+</LinearLayout>

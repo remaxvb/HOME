@@ -1,0 +1,42 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:paddingBottom="@dimen/default_child_padding"
+    android:paddingLeft="@dimen/default_larg_padding"
+    android:paddingRight="@dimen/default_child_padding"
+    android:paddingTop="@dimen/default_child_padding" >
+
+    <ImageView
+        android:id="@+id/nav_subitem_icon"
+        android:layout_width="@dimen/default_nav_subitem_icon_size"
+        android:layout_height="@dimen/default_nav_subitem_icon_size" />
+
+    <TextView
+        android:id="@+id/nav_subitem_counter"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/default_nav_subitem_icon_size"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/green_white_rectangle"
+        android:gravity="center"
+        android:paddingLeft="@dimen/default_mini_padding"
+        android:paddingRight="@dimen/default_mini_padding"
+        android:textColor="@color/first_white_color"
+        android:textSize="@dimen/default_tinytiny_textsize"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/nav_subitem_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="@dimen/default_child_padding"
+        android:layout_toLeftOf="@id/nav_subitem_counter"
+        android:layout_toRightOf="@id/nav_subitem_icon"
+        android:text="@string/app_name"
+        android:textSize="@dimen/default_tiny_textsize"
+        android:textStyle="italic" />
+
+</RelativeLayout>

@@ -1,0 +1,37 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingLeft="@dimen/base_dp"
+    android:paddingRight="@dimen/base_dp"
+    android:paddingTop="24dp"
+    tools:context=".SignIn" >
+
+    <EditText
+        android:id="@+id/txtSignInEmail"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/title_email"
+        android:inputType="text"
+        android:text="chien@gmail.com" />
+
+    <EditText
+        android:id="@+id/txtSignInPassword"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtSignInEmail"
+        android:layout_marginBottom="10dp"
+        android:hint="@string/title_password"
+        android:inputType="textPassword"
+        android:text="enclaveit@123" />
+
+    <Button
+        android:id="@+id/btnSignIn"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/txtSignInPassword"
+        android:background="@drawable/greenbutton"
+        android:text="@string/title_signin"
+        android:textColor="@color/first_white_color" />
+
+</RelativeLayout>
