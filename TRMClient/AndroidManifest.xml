@@ -15,7 +15,7 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/MyTheme" >
+        android:theme="@style/AppTheme" >
         <activity android:name="com.trm.trmclient.View.WelcomeActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,11 +25,19 @@
         </activity>
         <activity
             android:name="com.trm.trmclient.View.SignInActivity"
-            android:label="@string/title_activity_sign__in" >
+            android:label="@string/title_activity_sign__in"
+            android:parentActivityName="com.trm.trmclient.View.WelcomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.trm.trmclient.View.WelcomeActivity" />
         </activity>
         <activity
             android:name="com.trm.trmclient.View.SignUpActivity"
-            android:label="@string/title_activity_sign__up" >
+            android:label="@string/title_activity_sign__up"
+            android:parentActivityName="com.trm.trmclient.View.WelcomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.trm.trmclient.View.WelcomeActivity" />
         </activity>
         <activity
             android:name="com.trm.trmclient.View.DashboardActivity"
@@ -39,6 +47,15 @@
             android:name="com.trm.trmclient.View.CreateTourActivity"
             android:label="@string/title_activity_create_tour" >
         </activity>
+        <activity
+            android:name="com.trm.trmclient.View.MemberActivity"
+            android:label="@string/title_activity_member" >
+        </activity>
+		<activity
+            android:name="com.trm.trmclient.View.UpdateTourActivity"
+            android:label="@string/title_activity_update_tour" >
+        </activity>
+        <activity android:name=".View.DeleteTourActivity" />
     </application>
 
 </manifest>

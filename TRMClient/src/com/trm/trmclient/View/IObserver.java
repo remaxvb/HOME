@@ -13,7 +13,7 @@ public interface IObserver {
 	 * Update model data
 	 * @param o : Model data
 	 */
-	void loadModel(IDTO dto);
+	void updateFromModel(IDTO dto);
 
     void handleServiceResult(ServiceEventConstant serviceType, JSONObject data);
 

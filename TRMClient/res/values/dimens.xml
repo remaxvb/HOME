@@ -20,5 +20,7 @@
     <dimen name="default_useremail_textsize">12sp</dimen>
     <dimen name="default_nav_item_icon_size">28dp</dimen>
     <dimen name="default_nav_subitem_icon_size">22dp</dimen>
+    <dimen name="default_tour_thumb_width">100dp</dimen>
+    <dimen name="default_tour_thumb_height">50dp</dimen>
 
 </resources>

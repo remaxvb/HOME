@@ -7,7 +7,10 @@
     <string name="title_activity_sign__up">Sign Up</string>
     <string name="title_activity_welcome">WELCOME</string>
     <string name="title_activity_create_tour">Create Tour</string>
+    <string name="title_activity_update_tour">Update Tour</string>
+    
     <string name="title_activity_chat__box">CHATBOX</string>
+    <string name="title_activity_member">Members</string>
     <string name="title_email">Email</string>
     <string name="title_password">Password</string>
     <string name="title_repassword">Re-type</string>
@@ -23,5 +26,8 @@
     <string name="action_create_tour">Create tour</string>
     <string name="drawer_open">Open Drawer</string>
     <string name="drawer_close">Close Drawer</string>
+    <string name="action_invite_member">Invite member</string>
+    <string name="action_update_tour">Update tour</string>
+    <string name="action_clear_tour">Clear Tours</string>
 
 </resources>

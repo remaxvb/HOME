@@ -2,8 +2,8 @@ package com.trm.trmclient.Utils;
 
 import java.util.ArrayList;
 
-import com.trm.trmclient.Constants.NavigationConstant;
 import com.trm.trmclient.R;
+import com.trm.trmclient.Constants.NavigationConstant;
 
 import android.content.Context;
 import android.view.LayoutInflater;

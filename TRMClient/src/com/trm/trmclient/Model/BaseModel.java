@@ -1,20 +1,20 @@
 package com.trm.trmclient.Model;
 
-import java.net.PortUnreachableException;
 import java.util.ArrayList;
-
-import org.json.JSONObject;
 
 import android.util.Log;
 
-import com.trm.trmclient.Constants.ServiceEventConstant;
 import com.trm.trmclient.DTOs.IDTO;
+import com.trm.trmclient.DTOs.TourDTO;
+import com.trm.trmclient.Utils.FileUtil;
 import com.trm.trmclient.View.IObserver;
 
 /**
  * Created by hieu.t.vo on 3/14/14.
  */
 public class BaseModel implements ISubject {
+	private final boolean DEBUG = true;
+	private final String TAG = BaseModel.class.getSimpleName();
 	protected ArrayList<IObserver> observers;
 	protected IDTO dto;
 
@@ -37,20 +37,36 @@ public class BaseModel implements ISubject {
 	@Override
 	public void notifyObservers() {
 		for (IObserver iObserver : observers) {
-			iObserver.loadModel(dto);
+			iObserver.updateFromModel(dto);
 			Log.d("Observerable:", "notify: " + iObserver.toString());
 		}
 	}
 
-	public void setData(IDTO dto) {
+	public IDTO getDTO() {
+		return dto;
+	}
+	
+	public void setDTO(IDTO dto) {
 		this.dto = dto;
 	}
 
-    public void saveData(IDTO dto) {
-
+	/**
+	 * Set DTO and save DTO to memory
+	 * @param dto
+	 * @param fileName
+	 */
+    public void saveData(IDTO dto, String fileName) {
+//    	setDTO(dto);
+    	FileUtil.saveObject(dto, fileName);
     }
 
-    public IDTO loadData() {
-        return null;
+    /**
+     * Load DTO from memory
+     * @param fileName
+     * @return
+     */
+    public IDTO loadData(String fileName) {
+        return (IDTO)FileUtil.readObject(fileName);
     }
+
 }

@@ -9,11 +9,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
-        <TextView
-            android:id="@+id/txtTourTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Text" />
+        <android.support.v4.view.ViewPager
+            android:id="@+id/home_paper"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+            <android.support.v4.view.PagerTitleStrip
+                android:id="@+id/home_paper_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/first_dark_color"
+                android:paddingBottom="@dimen/default_mini_padding"
+                android:paddingTop="@dimen/default_mini_padding"
+                android:textColor="@color/first_white_color" />
+        </android.support.v4.view.ViewPager>
     </FrameLayout>
 
     <RelativeLayout

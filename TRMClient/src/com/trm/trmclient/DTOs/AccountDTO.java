@@ -1,5 +1,7 @@
 package com.trm.trmclient.DTOs;
 
+import java.io.Serializable;
+
 import com.trm.trmclient.Constants.JSONKey;
 
 import org.json.JSONException;
@@ -9,7 +11,11 @@ import org.json.JSONObject;
  * Created by hieu.t.vo on 3/13/14.
  */
 public class AccountDTO implements IDTO {
-    public String userID;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public String userID;
     public String token;
     public String firstName;
     public String lastName;
@@ -17,8 +23,8 @@ public class AccountDTO implements IDTO {
     public String address;
     public String phone;
     public String dateOfBirth;
-    public int gender;
-    public String avatarPath;
+    public boolean gender;
+    public String avatarFileName;
     public String password;
 
     @Override
@@ -34,7 +40,7 @@ public class AccountDTO implements IDTO {
             jsonObject.putOpt(JSONKey.KEY_PHONE, phone);
             jsonObject.putOpt(JSONKey.KEY_DATEOFBIRTH, dateOfBirth);
             jsonObject.putOpt(JSONKey.KEY_GENDER, gender);
-            jsonObject.putOpt(JSONKey.KEY_AVATARPATH, avatarPath);
+            jsonObject.putOpt(JSONKey.KEY_AVATARFILENAME, avatarFileName);
             jsonObject.putOpt(JSONKey.KEY_PASSWORD, password);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -54,9 +60,8 @@ public class AccountDTO implements IDTO {
             address = jsonObject.getString(JSONKey.KEY_ADDRESS);
             phone = jsonObject.getString(JSONKey.KEY_PHONE);
             dateOfBirth = jsonObject.getString(JSONKey.KEY_DATEOFBIRTH);
-            gender = jsonObject.getInt(JSONKey.KEY_GENDER);
-            avatarPath = jsonObject.getString(JSONKey.KEY_AVATARPATH);
-            password = jsonObject.getString(JSONKey.KEY_PASSWORD);
+            gender = jsonObject.getBoolean(JSONKey.KEY_GENDER);
+            avatarFileName = jsonObject.getString(JSONKey.KEY_AVATARFILENAME);
         } catch (JSONException e) {
             e.printStackTrace();
         }

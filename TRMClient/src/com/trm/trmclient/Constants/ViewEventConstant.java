@@ -15,5 +15,7 @@ public enum ViewEventConstant {
     GOTO_TOURACTIVITY, 
     GOTO_SIGN_IN,
     GOTO_CREATE_TOUR,
-    GOT0_SEARCH_TOUR
+    GOT0_SEARCH_TOUR, 
+    GOTO_MEMBER,
+    GOTO_UPDATE_TOUR
 }

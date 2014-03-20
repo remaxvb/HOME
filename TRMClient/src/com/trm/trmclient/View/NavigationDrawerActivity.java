@@ -16,25 +16,22 @@ public abstract class NavigationDrawerActivity extends BaseActivity {
 	protected DrawerLayout drawerLayout;
 	protected ActionBarDrawerToggle actionBarToggle;
 	protected ListView navigationDrawer;
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 	}
-	
+
 	protected void initActionBar() {
-		getActionBar().setTitle("Home");
 		this.drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 		this.actionBarToggle = new ActionBarDrawerToggle(this, drawerLayout,
 				R.drawable.ic_drawer, R.string.drawer_open,
 				R.string.drawer_close) {
 			public void onDrawerClosed(View view) {
 				super.onDrawerClosed(view);
-				getActionBar().setTitle("Home");
 			}
 
 			public void onDrawerOpened(View drawerView) {
-				getActionBar().setTitle("Menu");
 				super.onDrawerOpened(drawerView);
 			}
 		};
@@ -42,13 +39,13 @@ public abstract class NavigationDrawerActivity extends BaseActivity {
 		getActionBar().setHomeButtonEnabled(true);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 	}
-	
+
 	protected void initNavigationDrawer() {
 		this.navigationDrawer = (ListView) findViewById(R.id.navigation_drawer_list);
 		this.navigationDrawer.setAdapter(NavigationDrawerAdapter
 				.getInstance(this));
 	}
-	
+
 	@Override
 	protected void onPostCreate(Bundle savedInstanceState) {
 		super.onPostCreate(savedInstanceState);
@@ -68,5 +65,5 @@ public abstract class NavigationDrawerActivity extends BaseActivity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	
+
 }

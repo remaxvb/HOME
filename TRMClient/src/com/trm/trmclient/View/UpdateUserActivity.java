@@ -2,23 +2,17 @@ package com.trm.trmclient.View;
 
 import org.json.JSONObject;
 
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+
 import com.trm.trmclient.R;
 import com.trm.trmclient.Constants.ServiceEventConstant;
 import com.trm.trmclient.DTOs.AccountDTO;
 import com.trm.trmclient.DTOs.IDTO;
 import com.trm.trmclient.Utils.DialogBox;
-
-import android.app.ActionBar;
-import android.app.Activity;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.SimpleAdapter.ViewBinder;
 
 
 public class UpdateUserActivity extends BaseActivity implements OnClickListener {
@@ -62,7 +56,7 @@ public class UpdateUserActivity extends BaseActivity implements OnClickListener 
 		}
 	}
 	@Override
-	public void loadModel(IDTO dto) {
+	public void updateFromModel(IDTO dto) {
 		// TODO Auto-generated method stub
 		
 	}

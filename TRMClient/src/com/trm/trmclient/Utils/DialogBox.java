@@ -3,13 +3,13 @@ package com.trm.trmclient.Utils;
 /**
  * Created by Hieu on 3/16/14.
  */
+import com.trm.trmclient.R;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.view.View;
 import android.widget.Button;
-
 import android.widget.TextView;
-import com.trm.trmclient.R;
 
 public class DialogBox {
 	/**

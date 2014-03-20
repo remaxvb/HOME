@@ -6,9 +6,11 @@ import com.trm.trmclient.Common.ActionEvent;
 import com.trm.trmclient.Constants.ViewEventConstant;
 import com.trm.trmclient.View.BaseActivity;
 import com.trm.trmclient.View.CreateTourActivity;
+import com.trm.trmclient.View.MemberActivity;
 import com.trm.trmclient.View.SignInActivity;
 import com.trm.trmclient.View.SignUpActivity;
 import com.trm.trmclient.View.DashboardActivity;
+import com.trm.trmclient.View.UpdateTourActivity;
 
 /**
  * Created by hieu.t.vo on 3/14/14.
@@ -40,7 +42,16 @@ public class ViewController {
             base.startActivity(t);
             return;
         }
+        if (e.action == ViewEventConstant.GOTO_MEMBER) {
+            Intent t = new Intent(base, MemberActivity.class);
+            base.startActivity(t);
+            return;
+        }
         
-        
+        if (e.action == ViewEventConstant.GOTO_UPDATE_TOUR) {
+            Intent t = new Intent(base, UpdateTourActivity.class);
+            base.startActivity(t);
+            return;
+        }
     }
 }

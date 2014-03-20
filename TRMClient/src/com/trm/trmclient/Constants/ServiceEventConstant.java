@@ -12,5 +12,7 @@ package com.trm.trmclient.Constants;
 public enum  ServiceEventConstant {
     SIGN_IN,
     CREATE_TOUR,
-    SIGN_UP,
+    SIGN_UP, 
+    UPDATE_TOUR,
+	DELETE_TOUR,
 }

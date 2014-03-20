@@ -1,20 +1,27 @@
 package com.trm.trmclient.Utils.RailsService;
 
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.conn.ConnectTimeoutException;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.auth.BasicScheme;
 import org.apache.http.impl.client.AbstractHttpClient;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.R.bool;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
@@ -38,6 +45,8 @@ public class ServiceCaller {
 	private final int AUTH_PORT = 80;
 
 	private String urlBasePath;
+	
+	private int errorCode = 0;
 
 	private String progressTitle;
 	
@@ -59,6 +68,14 @@ public class ServiceCaller {
 
 	}
 
+	/**
+	 * Execute webservice with some option
+	 * @param context : Application context
+	 * @param serviceType : Type of service, in {@link ServiceEventConstant}
+	 * @param isShowProgress : true: Show progress
+	 * @param postData : JSON post data
+	 * @param progressTitle : title of progress
+	 */
 	public void executeService(Context context,
 			ServiceEventConstant serviceType, boolean isShowProgress,
 			JSONObject postData, String progressTitle) {
@@ -80,6 +97,12 @@ public class ServiceCaller {
 		if(serviceType==ServiceEventConstant.CREATE_TOUR){
 			return ServicePath.URL_CREATE_TOUR;
 		}
+		if(serviceType==ServiceEventConstant.UPDATE_TOUR){
+			return ServicePath.URL_UPDATE_TOUR;
+		}
+        if (serviceType == ServiceEventConstant.DELETE_TOUR){
+            return ServicePath.URL_DELETE_TOUR;
+        }
 		return null;
 	}
 
@@ -143,7 +166,7 @@ public class ServiceCaller {
 			if (response != null) {
 				serviceCallback.onReceiveResponse(serviceType, response);
 			} else {
-				serviceCallback.onError(serviceType, 404);
+				serviceCallback.onError(serviceType, errorCode);
 			}
 
 		}
@@ -157,7 +180,9 @@ public class ServiceCaller {
 	 * @return: Response as JSONObject
 	 */
 	private JSONObject sendPost(JSONObject requestJson) {
-		HttpClient httpClient = new DefaultHttpClient();
+		final HttpParams httpParams = new BasicHttpParams();
+	    HttpConnectionParams.setConnectionTimeout(httpParams, 25000);
+		HttpClient httpClient = new DefaultHttpClient(httpParams);
 
 		HttpResponse httpResponse = null;
 		String responeJson = null;
@@ -180,9 +205,19 @@ public class ServiceCaller {
 			httpResponse = httpClient.execute(httpPost, localContext);
 
 			responeJson = EntityUtils.toString(httpResponse.getEntity());
-		} catch (Exception e) {
-			Log.d(TAG, e.getMessage());
+		} catch (ConnectTimeoutException e) {
+			errorCode = 408;
+			e.printStackTrace();
 			return null;
+		} catch (UnsupportedEncodingException e) {
+			errorCode = -1;
+			e.printStackTrace();
+		} catch (ClientProtocolException e) {
+			errorCode = -1;
+			e.printStackTrace();
+		} catch (IOException e) {
+			errorCode = 405;
+			e.printStackTrace();
 		}
 
 		if (responeJson != null) {

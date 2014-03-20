@@ -26,7 +26,7 @@ import com.trm.trmclient.Utils.EmailValidator;
 public class SignInActivity extends BaseActivity implements
 		View.OnClickListener {
 
-	private Button btnSignIn, btnUpdate;
+	private Button btnSignIn;
 	private EditText txtPassword, txtEmail;
 	private TextView txtSignUp;
 
@@ -55,14 +55,15 @@ public class SignInActivity extends BaseActivity implements
 	public void onClick(View view) {
 		if (view.equals(btnSignIn)) {
 			String email = txtEmail.getText().toString().trim();
-			//Check email valid
+			// Check email valid
 			if (!(new EmailValidator().validate(email))) {
-				DialogBox.showMessage(this, "Wrong input", "Wrong email format", "OK");
+				DialogBox.showMessage(this, "Wrong input",
+						"Wrong email format", "OK");
 				return;
 			}
-			
-			//TODO: Check password valid here
-			
+
+			// TODO: Check password valid here
+
 			AccountDTO accountDTO = new AccountDTO();
 			accountDTO.email = email;
 			accountDTO.password = txtPassword.getText().toString().trim();
@@ -79,8 +80,8 @@ public class SignInActivity extends BaseActivity implements
 	}
 
 	@Override
-	public void loadModel(final IDTO dto) {
-
+	public void updateFromModel(final IDTO dto) {
+		//
 	}
 
 	@Override
@@ -98,7 +99,7 @@ public class SignInActivity extends BaseActivity implements
 
 			try {
 				result = data.getBoolean(JSONKey.KEY_SUCCESS);
-				
+
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}

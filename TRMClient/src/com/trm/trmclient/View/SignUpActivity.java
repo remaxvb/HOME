@@ -1,6 +1,5 @@
 package com.trm.trmclient.View;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.os.Bundle;
@@ -10,12 +9,10 @@ import android.widget.EditText;
 
 import com.trm.trmclient.R;
 import com.trm.trmclient.Constants.ServiceEventConstant;
-import com.trm.trmclient.Constants.ViewEventConstant;
 import com.trm.trmclient.Controller.MainController;
 import com.trm.trmclient.DTOs.AccountDTO;
 import com.trm.trmclient.DTOs.IDTO;
 import com.trm.trmclient.Model.AccountModel;
-import com.trm.trmclient.Utils.DialogBox;
 
 /**
  * Created by Hieu on 3/16/14.
@@ -40,7 +37,7 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
     }
 
     @Override
-    public void loadModel(IDTO dto) {
+    public void updateFromModel(IDTO dto) {
 
     }
 
