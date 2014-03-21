@@ -1,6 +1,0 @@
-*.class
-*.apk
-*.dex
-bin/
-gen/
-local.properties

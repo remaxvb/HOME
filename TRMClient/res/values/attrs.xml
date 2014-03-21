@@ -1,5 +1,0 @@
-<resources>
-    <declare-styleable name="SmoothProgressBar">
-        <attr name="spbStyle" format="string" />
-    </declare-styleable>
-</resources>
